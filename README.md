@@ -1,2 +1,0 @@
-# video-likecount
-video-likecount

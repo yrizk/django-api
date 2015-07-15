@@ -1,5 +1,0 @@
-*.pyc
-__pycache__
-video
-db.sqlite3
-.DS_Store
