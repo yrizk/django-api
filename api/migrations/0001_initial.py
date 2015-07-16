@@ -13,14 +13,14 @@ class Migration(migrations.Migration):
         migrations.CreateModel(
             name='Heart',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('sec', models.IntegerField()),
             ],
         ),
         migrations.CreateModel(
             name='Video',
             fields=[
-                ('id', models.AutoField(primary_key=True, auto_created=True, verbose_name='ID', serialize=False)),
+                ('id', models.AutoField(primary_key=True, auto_created=True, serialize=False, verbose_name='ID')),
                 ('title', models.CharField(max_length=200)),
             ],
         ),

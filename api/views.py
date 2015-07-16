@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from .models import Heart,Video
 from django.http import HttpResponse 
-from django.db.models import Count
+from django.db.models import Count,Sum
 import json 
 import logging
 # Create your views here.
@@ -15,15 +15,15 @@ def heart(request,video_id,hearted_time):
 	return HttpResponse('OK')
 
 def getHearts(request,video_id): 
-	hearts = Heart.objects.filter(video=video_id).annotate(sec_count=Count('sec')) # get all the hearts that are assocated with that video 
+	hearts = Heart.objects.filter(video=video_id).values('sec').annotate(likes=Count('sec')) # get all the hearts that are assocated with that video 
 	if not hearts : logging.warning('hearts is none')
 	else : logging.warning(hearts)
 	# aggregate the 
-
+	
 	response_data = [{
-		"sec: " : h.sec ,
-		"num_hearts" : h.sec_count 
-	} for h in hearts ]
+		"sec: " : h.get('sec'),
+		"num_hearts" : h.get('likes')
+	} for h in hearts]
 
 	response = { 
 		"video_id" : str(video_id),
