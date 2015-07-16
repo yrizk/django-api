@@ -14,7 +14,7 @@ for i in range(0,int(count)):
 	rand_sec = str(random.randint(1,180)) # 3 minute videos
 	rand_video_id = str(random.randint(1,3)) # just 3 videos 
 	print('rand_sec: ' + rand_sec + ' rand_video_id: ' + rand_video_id)
-	html = urllib.request.urlopen('http://yorizk.pythonanywhere.com/api/heart/' + rand_video_id + '/' + rand_sec).read()
+	html = urllib.request.urlopen('http://127.0.0.1:8000/api/heart/' + rand_video_id + '/' + rand_sec).read()
 	if i == 0: print('html: ' + str(html))
 
 
