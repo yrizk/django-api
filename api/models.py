@@ -14,6 +14,6 @@ class Heart(models.Model):
 	video = models.ForeignKey('Video')
 
 	def __str__(self): 
-		return "(" + self.sec + "," + self.video + ")"
+		return "{},{}".format(self.sec,self.video)
 
 
