@@ -1,19 +1,19 @@
 from django.db import models
 from django.utils import timezone
+from django.contrib.auth.models import User
 
 
 class Video(models.Model):
     title = models.CharField(max_length=200)
     
-    def heart(self):
-        self.save()
-
     def __str__(self):
         return self.title
 
 class Heart(models.Model): 
 	sec = models.IntegerField()
-	count = models.IntegerField()
+	video = models.ForeignKey('Video')
 
 	def __str__(self): 
-		return "(" + self.sec + "," + self.count + ")"
+		return "(" + self.sec + "," + self.video + ")"
+
+
